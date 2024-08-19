@@ -1,0 +1,37 @@
+.match-card {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 350px;
+  width: 250px;
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+  gap: 1rem 0;
+}
+
+.competing-team-logo {
+  width: 100px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.competing-team-name {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: normal;
+}
+
+.result {
+  color: #fff;
+}
+
+.lost {
+  color: #e31a1a;
+}
+
+.won {
+  color: #18ed66;
+}
