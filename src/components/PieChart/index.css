@@ -1,0 +1,14 @@
+.pie-chart-bg-container {
+  background-color: #0f172a;
+  border-radius: 16px;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .pie-chart-bg-container {
+    width: 100%;
+  }
+}

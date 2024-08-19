@@ -17,8 +17,30 @@
   gap: 1rem 2rem;
 }
 
+.statistics-heading {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
 @media screen and (max-width: 768px) {
   .match-card-grid {
     width: 100%;
   }
+}
+
+.back-btn {
+  border: 2px solid #0f172a;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-weight: normal;
+  font-size: 1rem;
+  outline: none;
+  background-color: #0f172a;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: transparent;
+  color: #0f172a;
 }

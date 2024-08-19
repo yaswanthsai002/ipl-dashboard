@@ -2,6 +2,8 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+import PieChart from '../PieChart'
+import {Link} from 'react-router-dom'
 import './index.css'
 
 export default class TeamMatches extends Component {
@@ -15,6 +17,21 @@ export default class TeamMatches extends Component {
   componentDidMount() {
     this.getTeamMatches()
   }
+
+  getNoOfMatches = value => {
+    const {latestMatchDetails, recentMatches} = this.state
+    const currentMatch = value === latestMatchDetails.matchStatus ? 1 : 0
+    const result =
+      recentMatches.filter(match => match.matchStatus === value).length +
+      currentMatch
+    return result
+  }
+
+  generatePieChartData = () => [
+    {name: 'Won', value: this.getNoOfMatches('Won')},
+    {name: 'Lost', value: this.getNoOfMatches('Lost')},
+    {name: 'Drawn', value: this.getNoOfMatches('Drawn')},
+  ]
 
   getTeamMatches = async () => {
     const {match} = this.props
@@ -82,10 +99,16 @@ export default class TeamMatches extends Component {
           </div>
         ) : (
           <>
+            <Link to="/">
+              <button type="button" className="back-btn">
+                Back
+              </button>
+            </Link>
             <LatestMatch
               latestMatchDetails={latestMatchDetails}
               teamBannerURL={teamBannerURL}
             />
+            <PieChart data={this.generatePieChartData()} />
             <ul className="match-card-grid">
               {recentMatches.map(match => (
                 <MatchCard match={match} key={match.id} />
